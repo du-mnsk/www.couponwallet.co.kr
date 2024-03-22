@@ -87,8 +87,8 @@ function FaqPage() {
             </FaqOptionList>
         );
     };
-
-    const requestData = { Header: { CmdType: 1002, RequestID: RequestID() }, Body: { Type:1, Offset: 0, Length: 6 } };
+    const [optionType, setOptionType] = useState(1);
+    const requestData = { Header: { CmdType: 1002, RequestID: RequestID() }, Body: { Type:optionType, Offset: 0, Length: 6 } };
     const fetchProducts = async () => {
         const { data } = await axios.post(BASE_URL, requestData);
         return data;
